@@ -1,25 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
+import Select from './Select';
 
-function App() {
+export default function App() {
+  const options = [
+    { value: "delhi", label: "Delhi" },
+    { value: "haryana", label: "Haryana" },
+    { value: "gujarat", label: "Gujarat" },
+    { value: "maharashtra", label: "Maharashtra" },
+    { value: "UP", label: "Uttar Pradesh" },
+    { value: "punjab", label: "Punjab" },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Datamall Test - Custom Select Component</h1>
+
+      <h3>Multi select with Search</h3>
+      <Select
+        isSearchable
+        isMulti
+        placeHolder="Select..."
+        options={options}
+        onChange={(value) => console.log(value)}
+      />
+
+      <h3>Single select with Search</h3>
+      <Select
+        isSearchable
+        placeHolder="Select..."
+        options={options}
+        onChange={(value) => console.log(value)}
+      />
+
+      <h3>Single select without Search</h3>
+      <Select
+        placeHolder="Select..."
+        options={options}
+        onChange={(value) => console.log(value)}
+      />
+
+      <h3>Multi select without Search</h3>
+      <Select
+        isMulti
+        placeHolder="Select..."
+        options={options}
+        onChange={(value) => console.log(value)}
+      />
     </div>
   );
 }
 
-export default App;
